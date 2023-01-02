@@ -23,8 +23,8 @@ public class Employees {
         String pass = "root";
         
        
-        String sql = "CREATE TABLE Employees " +
-                "(id INTEGER , " +
+       String sql = "CREATE TABLE Employees " +
+                "(id INTEGER , " + 
                 " employee_type_id INTEGER NOT NULL, " + 
                 "FOREIGN KEY (employee_type_id) REFERENCES Employee_Type(id) ON DELETE CASCADE ,"+
                 " room_id  INTEGER, " + 
