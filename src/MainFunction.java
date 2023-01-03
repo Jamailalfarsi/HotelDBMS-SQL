@@ -7,9 +7,8 @@ public class MainFunction {
 	public static void MainFunction() {
 		System.out.println("Select one of the options:");
 		System.out.println("1.Create Hotels");
-		System.out.println("2.Read From Table");
-		System.out.println("3.Insert Tables");
-		
+		System.out.println("2.Insert Tables");
+		System.out.println("3.Read From Table");
 		 }
 		public static void main(String[] args) {
 			
@@ -35,14 +34,15 @@ public class MainFunction {
 					
 					 break;
 				case 2:
-					Hotels hotelTable2=new Hotels();
-					hotelTable2.readFromTable();
+					Hotels hotelTable3=new Hotels();
+					hotelTable3.insertIntoTable();	
 					
 					break;
 				case 3:
-					Hotels hotelTable3=new Hotels();
-					hotelTable3.insertIntoTable();	
-				
+					
+					Hotels hotelTable2=new Hotels();
+					hotelTable2.readFromTable();
+					
 				
 			}
 				}while(true);

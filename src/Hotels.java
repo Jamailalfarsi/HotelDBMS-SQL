@@ -1,7 +1,9 @@
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -36,8 +38,64 @@ public class Hotels {
                 " PRIMARY KEY ( id ))";
         }
         public static void readFromTable(){
-     // Entering the data
-        Scanner scanner = new Scanner(System.in);
+        	
+        	String url = "jdbc:mysql://localhost:3306/HotelDBMS";
+
+            // Username and password to access DB
+            // Custom initialization
+            String user = "root";
+            String pass = "root";
+            
+        	Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter How many you want to read hotels from table: ");
+            Integer numberOfHotels =scanner.nextInt();
+            
+            String sql2 = "SELECT * FROM hotels";
+           
+            
+            Connection con1 = null;
+        	
+            try {
+            	
+            Driver driver = (Driver) Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+            // Registering drivers
+            DriverManager.registerDriver(driver);
+
+            // Reference to connection interface
+            con1 = DriverManager.getConnection(url, user,
+                    pass);
+
+            // Creating a statement
+            Statement st = con1.createStatement();
+            ResultSet resultSet = st.executeQuery(sql2);
+           // System.out.println(resultSet);
+            while(resultSet.next()){
+            	Integer id = resultSet.getInt("id");
+            	String hotel_name = resultSet.getString("hotel_name");
+            	String hotel_location = resultSet.getString("hotel_location");
+            	Date created_date = resultSet.getDate("created_date");
+            	Date updated_date = resultSet.getDate("created_date");
+            	Integer is_Active=resultSet.getInt("is_Active");
+            	
+            	 System.out.println(id + ", " + hotel_name+ ", " + hotel_location +
+                         ", " + created_date+" ,"+updated_date+", "+is_Active );
+            }
+    
+           //  int m = st.executeQuery(sql2);
+          //   if (m >=  0)
+           //    System.out.println(" successfully : " );
+           //  else
+             //  System.out.println(" failed");
+
+             // Closing the connections
+           //  con1.close();
+        }
+
+        // Catch block to handle exceptions
+        catch (Exception ex) {
+            // Display message when exceptions occurs
+            System.err.println(ex);
+        }
 
         } 
 
