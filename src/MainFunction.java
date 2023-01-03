@@ -8,7 +8,8 @@ public class MainFunction {
 		System.out.println("Select one of the options:");
 		System.out.println("1.Create Hotels");
 		System.out.println("2.Insert Tables");
-		System.out.println("3.Read From Table");
+		System.out.println("3.Read rows From Table ");
+		System.out.println("4.Read rows From Table by Id");
 		 }
 		public static void main(String[] args) {
 			
@@ -42,6 +43,12 @@ public class MainFunction {
 					
 					Hotels hotelTable2=new Hotels();
 					hotelTable2.readFromTable();
+					break;
+                case 4:
+					
+					Hotels readId=new Hotels();
+					readId.getById();
+					break;	
 					
 				
 			}

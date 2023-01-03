@@ -81,14 +81,7 @@ public class Hotels {
                          ", " + created_date+" ,"+updated_date+", "+is_Active );
             }
     
-           //  int m = st.executeQuery(sql2);
-          //   if (m >=  0)
-           //    System.out.println(" successfully : " );
-           //  else
-             //  System.out.println(" failed");
-
-             // Closing the connections
-           //  con1.close();
+           
         }
 
         // Catch block to handle exceptions
@@ -99,9 +92,6 @@ public class Hotels {
 
         } 
 
-       // Inserting data using SQL query
-        
-		
 		
         public static void insertIntoTable(){
         String url = "jdbc:mysql://localhost:3306/HotelDBMS";
@@ -124,11 +114,8 @@ public class Hotels {
   		    String updated_date="2022-12-12";
   		    int is_Active=1;
              
-     		
-     			
      			   Random rn = new Random();
-     		       Integer numberToAdd = rn.nextInt(100);
-     		       
+     		       Integer numberToAdd = rn.nextInt(100);		       
      		      
      		for(int i=1;i<=number;i++) {
      			String in = "insert into Hotels values ("+i+", '"+hotel_name+i+"', '"+hotel_location+i+"', '"+created_date+"', '"+updated_date+"', '"+is_Active+"')";
@@ -169,6 +156,59 @@ public class Hotels {
         }
 
         }}
-}
+        public static void getById(){
+        	String url = "jdbc:mysql://localhost:3306/HotelDBMS";
+
+            // Username and password to access DB
+            // Custom initialization
+            String user = "root";
+            String pass = "root";
+            
+        	Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter id: ");
+            Integer idInput =scanner.nextInt();
+            
+            String sql2 = "select * from Hotels where id='"+idInput+"'";
+           
+            
+            Connection con1 = null;
+        	
+            try {
+            	
+            Driver driver = (Driver) Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+            // Registering drivers
+            DriverManager.registerDriver(driver);
+
+            // Reference to connection interface
+            con1 = DriverManager.getConnection(url, user, pass);
+
+            // Creating a statement
+            Statement st = con1.createStatement();
+            ResultSet resultSet = st.executeQuery(sql2);
+           // System.out.println(resultSet);
+            while(resultSet.next()){
+            	Integer id = resultSet.getInt("id");
+            	String hotel_name = resultSet.getString("hotel_name");
+            	String hotel_location = resultSet.getString("hotel_location");
+            	Date created_date = resultSet.getDate("created_date");
+            	Date updated_date = resultSet.getDate("created_date");
+            	Integer is_Active=resultSet.getInt("is_Active");
+            	
+            	 System.out.println(id + ", " + hotel_name+ ", " + hotel_location +
+                         ", " + created_date+" ,"+updated_date+", "+is_Active );
+            }
+    
+           
+        }
+
+        // Catch block to handle exceptions
+        catch (Exception ex) {
+            // Display message when exceptions occurs
+            System.err.println(ex);
+        }
+
+        } 
+    }
+
     
 
