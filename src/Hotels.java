@@ -34,7 +34,7 @@ public class Hotels {
                 " is_Active Boolean NOT NULL, " + 
                 " PRIMARY KEY ( id ))";
         }
-        public static Void readFromTable(){
+        public static void readFromTable(){
      // Entering the data
         Scanner scanner = new Scanner(System.in);
 
@@ -59,11 +59,9 @@ public class Hotels {
         
 
        // Inserting data using SQL query
-        String sql = "insert into Hotels values('" + id
-             + "'," + hotelName + ",'" + hotelLocation + "'," +createdDate+",'"+updatedDate+"',"+active+")";
         
-        //String sql = "insert into Hotels values(  (1,'math','mathmatic',5.5),"
-		 	//	+ "(7,'skills','skills',1.6)";
+		
+		
 
         String url = "jdbc:mysql://localhost:3306/HotelDBMS";
 
@@ -77,7 +75,9 @@ public class Hotels {
 
         // Try block to check for exceptions
         try {
-
+        	String in = "INSERT INTO Hotels VALUES(" + id
+                    + ",'" + hotelName + "','" + hotelLocation + "','" +createdDate+"','"+updatedDate+"',"+active+")";
+      		
             Driver driver = (Driver) Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
             // Registering drivers
             DriverManager.registerDriver(driver);
@@ -91,10 +91,11 @@ public class Hotels {
 
             String sql1 = null;
 			// Executing query
-            int m = st.executeUpdate(sql1);
-            if (m >=  0)
+          // int m = st.executeUpdate(sql1);
+           int m = st.executeUpdate(in);
+            if (m >=  1)
                 System.out.println(
-                        "inserted successfully : " + sql1);
+                        "inserted successfully : " + m);
             else
                 System.out.println("insertion failed");
 
@@ -107,7 +108,7 @@ public class Hotels {
             // Display message when exceptions occurs
             System.err.println(ex);
         }
-		return null;
+
         }
 }
     
