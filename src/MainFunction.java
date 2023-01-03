@@ -10,6 +10,7 @@ public class MainFunction {
 		System.out.println("2.Insert Tables");
 		System.out.println("3.Read rows From Table ");
 		System.out.println("4.Read rows From Table by Id");
+		System.out.println("5.Updat table");
 		 }
 		public static void main(String[] args) {
 			
@@ -48,6 +49,12 @@ public class MainFunction {
 					
 					Hotels readId=new Hotels();
 					readId.getById();
+					break;	
+					
+                case 5:
+					
+					Hotels updateTable=new Hotels();
+					updateTable.updateById();
 					break;	
 					
 				
