@@ -11,9 +11,9 @@ public class MainFunction {
 		System.out.println("3.Read rows From Table ");
 		System.out.println("4.Read rows From Table by Id");
 		System.out.println("5.Updat table by Id");
-		System.out.println("6.Updat table by Id");
 		System.out.println("7.Make hotel Active is false");
-
+		
+		
 		 }
 		public static void main(String[] args) {
 			
@@ -65,10 +65,13 @@ public class MainFunction {
 					updateTable.deleteById();
 					break;	
 					
-                case 7:
-                	Hotels isActiveInput=new Hotels();
-                	isActiveInput.makeIsActiveFalseById();
-					break;	
+                case 7:	
+                	Hotels updateisActive=new Hotels();
+                	updateisActive.makeIsActiveFalseById();
+					break;
+                
+                	
+               
 			}
 				}while(true);
 
