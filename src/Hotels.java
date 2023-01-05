@@ -24,7 +24,7 @@ public class Hotels {
 		// Custom initialization
 		String user = "root";
 		String pass = "root";
-		String sql = "CREATE TABLE Hotels " + "(id INTEGER , " + " hotel_name VARCHAR(8) NOT NULL, "
+		String sql = "CREATE TABLE Hotels " + "(id int NOT NULL AUTO_INCREMENT , " + " hotel_name VARCHAR(8) NOT NULL, "
 				+ " hotel_location VARCHAR(250), " + " created_date DATE NOT NULL, " + " updated_date DATE , "
 				+ " is_Active bit NOT NULL, " + " PRIMARY KEY ( id ))";
 		// Connection class object
@@ -99,7 +99,7 @@ public class Hotels {
 				String hotel_location = resultSet.getString("hotel_location");
 				Date created_date = resultSet.getDate("created_date");
 				Date updated_date = resultSet.getDate("created_date");
-				Integer is_Active = resultSet.getInt("is_Active");
+				Boolean is_Active = resultSet.getBoolean("is_Active");
 
 				System.out.println(id + ", " + hotel_name + ", " + hotel_location + ", " + created_date + " ,"
 						+ updated_date + ", " + is_Active);
@@ -133,14 +133,14 @@ public class Hotels {
 		String hotel_location = "Muscut";
 		String created_date = "2022-02-02";
 		String updated_date = "2022-12-12";
-		int is_Active = 1;
+		Boolean is_Active = true;
 
 		Random rn = new Random();
 		Integer numberToAdd = rn.nextInt(100);
 
 		for (int i = 1; i <= number; i++) {
-			String in = "insert into Hotels values (" +numberToAdd + ", '" + hotel_name + i + "', '" + hotel_location + i
-					+ "', '" + created_date + "', '" + updated_date + "', '" + is_Active + "')";
+			String in = "insert into Hotels values (" +i + ", '" + hotel_name + i + "', '" + hotel_location + i
+					+ "', '" + created_date + "', '" + updated_date + "'," + is_Active + ")";
 //         	String in = "INSERT INTO Hotels VALUES("+id+i+","+hotel_name+i+","+hotel_location+i+","
 //         			+ ""+created_date+","+updated_date+","+is_Active+i+")";
 //                     System.out.println(hotel_name);
@@ -212,7 +212,7 @@ public class Hotels {
 				String hotel_location = resultSet.getString("hotel_location");
 				Date created_date = resultSet.getDate("created_date");
 				Date updated_date = resultSet.getDate("created_date");
-				Integer is_Active = resultSet.getInt("is_Active");
+				int is_Active = resultSet.getInt("is_Active");
 
 				System.out.println(id + ", " + hotel_name + ", " + hotel_location + ", " + created_date + " ,"
 						+ updated_date + ", " + is_Active);
@@ -375,7 +375,7 @@ public class Hotels {
 		Integer numberToAdd = rn.nextInt(100);
 
 		for (int i = 1; i <= numberN; i++) {
-			String in = "insert into Hotels values (" +numberToAdd + ", '" + hotel_name + i + "', '" + hotel_location + i
+			String in = "insert into Hotels values ("  +numberToAdd + ", '" + hotel_name + i + "', '" + hotel_location + i
 					+ "', '" + created_date + "', '" + updated_date + "', '" + is_Active + "')";
 //         	String in = "INSERT INTO Hotels VALUES("+id+i+","+hotel_name+i+","+hotel_location+i+","
 //         			+ ""+created_date+","+updated_date+","+is_Active+i+")";
@@ -412,11 +412,6 @@ public class Hotels {
 
 		}
 	}
-
-
-	
-		// TODO Auto-generated method stub
-		
 	
 
 	

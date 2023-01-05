@@ -16,6 +16,9 @@ public class MainFunction {
 		System.out.println("8.Make hotel Active is false");
 		
 		 }
+	public static void submenueFunction() {
+		System.out.println("Select one of the options:");
+	}
 		public static void main(String[] args) {
 			
 			 
@@ -23,7 +26,7 @@ public class MainFunction {
 			// TODO Auto-generated method stub
 			
 			boolean MenuExit = true;
-			
+			boolean subMenuExit = true;
 			
 			while( MenuExit ) {
 				Scanner sc = new Scanner(System.in);
@@ -32,8 +35,8 @@ public class MainFunction {
 			do {
 				
 
-				int studentSubMenue = sc.nextInt();
-				switch(studentSubMenue) {
+				int SubMenue1 = sc.nextInt();
+				switch(SubMenue1) {
 				case 1:
 					
 					Hotels hotelTable1=new Hotels();
@@ -80,9 +83,7 @@ public class MainFunction {
                 	Hotels Activeinput=new Hotels();
                 	Activeinput.makeIsActiveFalseById( );
 					break;
-                
-                	
-               
+					
 			}
 				}while(true);
 

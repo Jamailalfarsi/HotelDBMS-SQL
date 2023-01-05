@@ -29,7 +29,7 @@ public class Employees {
        
        String sql = "CREATE TABLE Employees " +
                 "(id INTEGER , " + 
-                " employee_type_id INTEGER NOT NULL, " + 
+                " employee_type_id INTEGER NOT NULL AUTO_INCREMENT, " + 
                 "FOREIGN KEY (employee_type_id) REFERENCES Employee_Type(id) ON DELETE CASCADE ,"+
                 " room_id  INTEGER, " + 
                 "FOREIGN KEY (room_id) REFERENCES Hotels(id) ON DELETE CASCADE ,"+
