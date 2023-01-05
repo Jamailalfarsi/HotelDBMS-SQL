@@ -10,7 +10,9 @@ public class MainFunction {
 		System.out.println("2.Insert Tables");
 		System.out.println("3.Read rows From Table ");
 		System.out.println("4.Read rows From Table by Id");
-		System.out.println("5.Updat table");
+		System.out.println("5.Updat table by Id");
+		System.out.println("6.Updat table by Id");
+
 		 }
 		public static void main(String[] args) {
 			
@@ -53,10 +55,14 @@ public class MainFunction {
 					
                 case 5:
 					
-					Hotels updateTable=new Hotels();
-					updateTable.updateById();
+					Hotels deleteTable=new Hotels();
+					deleteTable.updateById();
 					break;	
+                case 6:
 					
+					Hotels updateTable=new Hotels();
+					updateTable.deleteById();
+					break;	
 				
 			}
 				}while(true);
