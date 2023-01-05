@@ -41,8 +41,8 @@ public class MainFunction {
 					
 					 break;
 				case 2:
-					//Hotels hotelTable3=new Hotels();
-					//hotelTable3.insertIntoTable();	
+					Hotels hotelTable3=new Hotels();
+					hotelTable3.insertIntoTable();	
 					
 					break;
 				case 3:
