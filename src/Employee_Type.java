@@ -12,7 +12,7 @@ public class Employee_Type {
 
     // Main driver method
 	
-	public static void main(String[] args) {
+	public static void EmployeeTypeFunction() {
 		// Creating the connection using Oracle DB
         // Note: url syntax is standard, so do grasp
         String url = "jdbc:mysql://localhost:3306/HotelDBMS";
@@ -24,7 +24,7 @@ public class Employee_Type {
         
        
         String sql = "CREATE TABLE Employee_Type " +
-                "(id INTEGER , " +
+                "(id int NOT NULL AUTO_INCREMENT , " +
                 " employee_type_name VARCHAR(8) NOT NULL, " + 
                 " hotel_location VARCHAR(250), " + 
                 " created_date DATE NOT NULL, " + 

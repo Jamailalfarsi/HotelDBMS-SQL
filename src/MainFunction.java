@@ -6,14 +6,22 @@ public class MainFunction {
 
 	public static void MainFunction() {
 		System.out.println("Select one of the options:");
-		System.out.println("1.Create Hotels");
+		System.out.println("1.Create Hotels Table");
 		System.out.println("2.Insert hotel Table");
-		System.out.println("3.Make N numbers of hotels");
-		System.out.println("4.Read rows From Table ");
-		System.out.println("5.Read rows From Table by Id");
-		System.out.println("6.Updat table by Id");
-		System.out.println("7.delete row from table by id");
-		System.out.println("8.Make hotel Active is false");
+		System.out.println("3.Read rows From Table ");
+		System.out.println("4.Read rows From Table by Id");
+		System.out.println("5.Updat table by Id");
+		System.out.println("6.delete row from table by id");
+		System.out.println("7.Make hotel Active is false");
+		System.out.println("8.Create Room_Type Table");
+		System.out.println("9.Create Room Table");
+		System.out.println("10.Create Guests Table");
+		System.out.println("11.Create Employee_type Table");
+		System.out.println("12.Create Employee Table");
+		//System.out.println("13.Insert into Employees Table");
+		System.out.println("13.Insert into room_Type");
+		//System.out.println("10.Create Employee_type Table");
+		//System.out.println("11.Create Rooms table");
 		
 		 }
 	public static void submenueFunction() {
@@ -49,41 +57,59 @@ public class MainFunction {
 					
 					break;
 				case 3:
-					
-					Scanner scanner = new Scanner(System.in);
-                	System.out.println("Enter the number of Hotels:");
-            		int numberN = scanner.nextInt();
-            		
-                	//Hotels insertNhotels1=new Hotels();
-            		Hotels.insertNIntoTable1( numberN);
-            		break;
-                case 4:
-					
-                	Hotels hotelTable2=new Hotels();
+					Hotels hotelTable2=new Hotels();
 					hotelTable2.readFromTable();
 					break;	
 					
-                case 5:
-					
-					Hotels readId=new Hotels();
+                case 4:
+                	Hotels readId=new Hotels();
 					readId.getById();
 					break;	
-                case 6:
+                	
 					
+                case 5:
                 	Hotels updateTable=new Hotels();
                 	updateTable.updateById();
 					break;	
 					
-                case 7:
+                case 6:
                 	Hotels deleteTable=new Hotels();
                 	deleteTable.deleteById();
 					break;
 
-                case 8:	
+					
+                case 7:
                 	Hotels Activeinput=new Hotels();
                 	Activeinput.makeIsActiveFalseById( );
 					break;
-					
+
+                case 8:
+                	Room_Type roomType=new Room_Type();
+                	roomType.RoomTypeFunction();
+                	break;
+                case 9:
+                	Rooms rooms=new Rooms();
+                	rooms.createRoomsTable();
+                	break;
+                case 10:
+                	Guests guestsTable=new Guests();
+                	guestsTable.GuestsTable();
+                	break;
+                case 11:
+                	Employee_Type employeeType=new Employee_Type();
+                	employeeType.EmployeeTypeFunction();
+                	break;
+                case 12:
+                	Employees employees=new Employees();
+                	employees.employeesTable();
+                	break;
+//                case 13:
+//                	Employees employeeInsert=new Employees();
+//                	employeeInsert.insertIntoTable2();
+//                	break;
+                case 13:
+                	Room_Type roomTypeInsert=new Room_Type();
+                	roomTypeInsert.insertIntoTable3();
 			}
 				}while(true);
 

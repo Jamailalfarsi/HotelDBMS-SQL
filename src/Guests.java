@@ -12,7 +12,7 @@ public class Guests {
 
 	    // Main driver method
 		
-		public static void main(String[] args) {
+		public static void GuestsTable(){
 			// Creating the connection using Oracle DB
 	        // Note: url syntax is standard, so do grasp
 	        String url = "jdbc:mysql://localhost:3306/HotelDBMS";
@@ -24,7 +24,7 @@ public class Guests {
 	        
 	       
 	        String sql = "CREATE TABLE Guests " +
-	                "(id INTEGER , " +
+	                "(id int NOT NULL AUTO_INCREMENT , " +
 	                " guest_name VARCHAR(20) NOT NULL, " + 
 	                " guest_phone VARCHAR(20) NOT NULL , " + 
 	                " guest_accompanying_members INTEGER NOT NULL, " + 

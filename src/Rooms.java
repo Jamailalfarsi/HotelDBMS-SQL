@@ -12,7 +12,7 @@ public class Rooms {
 
     // Main driver method
 	
-	public static void main(String[] args) {
+	public static void createRoomsTable() {
 		// Creating the connection using Oracle DB
         // Note: url syntax is standard, so do grasp
         String url = "jdbc:mysql://localhost:3306/HotelDBMS";
@@ -24,7 +24,7 @@ public class Rooms {
         
        
         String sql = "CREATE TABLE Rooms " +
-                "(id INTEGER , " +
+                "(id int NOT NULL AUTO_INCREMENT , " +
                 " room_type_id INTEGER , " + 
                 "FOREIGN KEY ( room_type_id) REFERENCES Room_Type(id) ON DELETE CASCADE ,"+
                 " hotel_id INTEGER , " + 

@@ -141,9 +141,7 @@ public class Hotels {
 		for (int i = 1; i <= number; i++) {
 			String in = "insert into Hotels values (" +i + ", '" + hotel_name + i + "', '" + hotel_location + i
 					+ "', '" + created_date + "', '" + updated_date + "'," + is_Active + ")";
-//         	String in = "INSERT INTO Hotels VALUES("+id+i+","+hotel_name+i+","+hotel_location+i+","
-//         			+ ""+created_date+","+updated_date+","+is_Active+i+")";
-//                     System.out.println(hotel_name);
+//         	
 			Connection con1 = null;
 
 			try {
@@ -325,7 +323,7 @@ public class Hotels {
 		System.out.println("Enter hotel is active=0 ");
 		Integer falseInput = scanner.nextInt();
 
-		String sql2 = "UPDATE Hotels SET is_Active='" + falseInput + "' WHERE id='" + idInput + "'";
+		String sql2 = "UPDATE Hotels SET is_Active=" + falseInput + " WHERE id=" + idInput ;
 		
 		Connection con1 = null;
 
@@ -353,68 +351,31 @@ public class Hotels {
 		}
 		
 	}
-	public static void insertNIntoTable1(int numberN) {
-		String url = "jdbc:mysql://localhost:3306/HotelDBMS";
-
-		// Username and password to access DB
-		// Custom initialization
-		String user = "root";
-		String pass = "root";
+	
+		
+		
 
 		
 		
 
-		// int id = 0;
-		String hotel_name = "MM";
-		String hotel_location = "Muscut";
-		String created_date = "2022-02-02";
-		String updated_date = "2022-12-12";
-		int is_Active = 1;
+		
+			
 
-		Random rn = new Random();
-		Integer numberToAdd = rn.nextInt(100);
+			
 
-		for (int i = 1; i <= numberN; i++) {
-			String in = "insert into Hotels values ("  +numberToAdd + ", '" + hotel_name + i + "', '" + hotel_location + i
-					+ "', '" + created_date + "', '" + updated_date + "', '" + is_Active + "')";
-//         	String in = "INSERT INTO Hotels VALUES("+id+i+","+hotel_name+i+","+hotel_location+i+","
-//         			+ ""+created_date+","+updated_date+","+is_Active+i+")";
-//                     System.out.println(hotel_name);
-			Connection con1 = null;
+				
+				
 
-			try {
+				
+				
 
-				Driver driver = (Driver) Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-				// Registering drivers
-				DriverManager.registerDriver(driver);
+			
 
-				// Reference to connection interface
-				con1 = DriverManager.getConnection(url, user, pass);
-
-				// Creating a statement
-				Statement st = con1.createStatement();
-
-				int m = st.executeUpdate(in);
-				if (m >= 0)
-					System.out.println("inserted successfully : " + m);
-				else
-					System.out.println("insertion failed");
-
-				// Closing the connections
-				con1.close();
-			}
-
-			// Catch block to handle exceptions
-			catch (Exception ex) {
-				// Display message when exceptions occurs
-				System.err.println(ex);
-			}
-
-		}
+		
 	}
 	
 
 	
-	}
+	
 	
 

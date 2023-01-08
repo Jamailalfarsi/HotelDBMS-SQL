@@ -27,21 +27,20 @@ public class Employees {
         String pass = "root";
         
        
-       String sql = "CREATE TABLE Employees " +
-                "(id INTEGER , " + 
-                " employee_type_id INTEGER NOT NULL AUTO_INCREMENT, " + 
-                "FOREIGN KEY (employee_type_id) REFERENCES Employee_Type(id) ON DELETE CASCADE ,"+
+        String sql = "CREATE TABLE Employees " +
+                "(id int NOT NULL AUTO_INCREMENT  , " +
+                " employee_type_id INTEGER NOT NULL, " + 
+               "FOREIGN KEY (employee_type_id) REFERENCES Employee_Type(id) ON DELETE CASCADE ,"+
+               // "CONSTRAINT employee_type_idFK foreign key (employee_type_id) REFERENCES Employee_Type(id),"+
                 " room_id  INTEGER, " + 
                 "FOREIGN KEY (room_id) REFERENCES Hotels(id) ON DELETE CASCADE ,"+
 
                 " created_date DATE NOT NULL, " + 
                 " updated_date DATE , " + 
-                " is_Active Boolean NOT NULL, " + 
+                " is_Active bit NOT NULL, " + 
                 " PRIMARY KEY ( id ))";
 
-        // Entering the data
        
-
         
         // Connection class object
         Connection con = null;
@@ -145,7 +144,7 @@ public class Employees {
 		Integer number = scanner.nextInt();
 
 		// int id = 0;
-		Integer employee_type_id = 1;
+		Integer employee_type_id = 2333;
 		Integer room_id  = 1;
 		String created_date = "2022-02-02";
 		String updated_date = "2022-12-12";
@@ -155,8 +154,10 @@ public class Employees {
 		Integer numberToAdd = rn.nextInt(100);
 
 		for (int i = 1; i <= number; i++) {
-			String in = "insert into Employees values (" +numberToAdd + ", '" + employee_type_id + i + "', '" + room_id + i
-					+ "', '" + created_date + "', '" + updated_date + "', '" + is_Active + "')";
+			String in = "insert into Employees values (" +i + ", " + employee_type_id +  ", " + room_id +
+					 ", '" + created_date + "', '" + updated_date + "', " + is_Active + ")";
+			
+			
 
 			Connection con1 = null;
 
@@ -256,7 +257,7 @@ public class Employees {
 		String employeeInput = scanner.next();
 
 
-		String sql2 = "UPDATE Employees SET employee_type_id='" + employeeInput + "',hotel_location='" 
+		String sql2 = "UPDATE Employees SET employee_type_id='" + employeeInput 
 				+ "' WHERE id='" + idInput + "'";
 		
 		Connection con1 = null;
@@ -335,7 +336,7 @@ public class Employees {
 		System.out.println("Enter employee is active=0 ");
 		Integer falseInput = scanner.nextInt();
 
-		String sql2 = "UPDATE Hotels SET is_Active='" + falseInput + "' WHERE id='" + idInput + "'";
+		String sql2 = "UPDATE Employees SET is_Active=" + falseInput + " WHERE id=" + idInput ;
 		
 		Connection con1 = null;
 
