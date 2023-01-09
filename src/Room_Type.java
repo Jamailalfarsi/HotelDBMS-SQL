@@ -86,20 +86,25 @@ public class Room_Type {
 
 		System.out.println("Enter How many you want of Room Type:");
 		Integer number = scanner.nextInt();
-
+		
+		Random rn = new Random();
+		Integer numberToAdd = rn.nextInt(100);
+		
+		
+		
+		
 		// int id = 0;
-		String room_type_name = "Special";
+		String room_type_name = "Special" + numberToAdd;
 		String created_date = "2022-02-02";
 		String updated_date = "2022-12-12";
 		Boolean is_Active = true;
 
-		Random rn = new Random();
-		Integer numberToAdd = rn.nextInt(100);
+		
 
 		for (int i = 1; i <= number; i++) {
-			String in = "insert into Room_Type values (" +i + ", '" + room_type_name + i + "', '" 
-					+ "', '" + created_date + "', '" + updated_date + "'," + is_Active + ")";
-//         	
+			String in = "insert into Room_Type values (" + i + ", '" + room_type_name + "', '" 
+					+ created_date + "', '" + updated_date + "'," + is_Active + ")";
+        	
 			Connection con1 = null;
 
 			try {

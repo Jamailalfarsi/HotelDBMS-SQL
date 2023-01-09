@@ -1,7 +1,10 @@
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Date;
+import java.util.Scanner;
 
 public class Employee_Type {
 
@@ -71,5 +74,228 @@ public class Employee_Type {
             System.err.println(ex);
         }
     }
+	public static void readFromTable6() {
+
+		String url = "jdbc:mysql://localhost:3306/HotelDBMS";
+
+		// Username and password to access DB
+		// Custom initialization
+		String user = "root";
+		String pass = "root";
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter How many you want to read Employee type from table: ");
+		Integer numberOfEmpType = scanner.nextInt();
+
+		String sql2 = "SELECT * FROM Employee_type";
+
+		Connection con1 = null;
+
+		try {
+
+			Driver driver = (Driver) Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+			// Registering drivers
+			DriverManager.registerDriver(driver);
+
+			// Reference to connection interface
+			con1 = DriverManager.getConnection(url, user, pass);
+
+			// Creating a statement
+			Statement st = con1.createStatement();
+			ResultSet resultSet = st.executeQuery(sql2);
+			// System.out.println(resultSet);
+			while (resultSet.next()) {
+				Integer id = resultSet.getInt("id");
+				String employee_type_name = resultSet.getString("employee_type_name");
+				String hotel_location=resultSet.getString("hotel_location");
+				Date created_date = resultSet.getDate("created_date");
+				Date updated_date = resultSet.getDate("created_date");
+				Boolean is_Active = resultSet.getBoolean("is_Active");
+
+				System.out.println(id + ", " + employee_type_name + ", "+hotel_location+", " + created_date + " ,"
+						+ updated_date + ", " + is_Active);
+			}
+
+		}
+
+		// Catch block to handle exceptions
+		catch (Exception ex) {
+			// Display message when exceptions occurs
+			System.err.println(ex);
+		}
+
+	}
+	public static void getById6() {
+		String url = "jdbc:mysql://localhost:3306/HotelDBMS";
+
+		// Username and password to access DB
+		// Custom initialization
+		String user = "root";
+		String pass = "root";
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter id: ");
+		Integer idInput = scanner.nextInt();
+
+		String sql2 = "select * from Employee_Type where id='" + idInput + "'";
+
+		Connection con1 = null;
+
+		try {
+
+			Driver driver = (Driver) Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+			// Registering drivers
+			DriverManager.registerDriver(driver);
+
+			// Reference to connection interface
+			con1 = DriverManager.getConnection(url, user, pass);
+
+			// Creating a statement
+			Statement st = con1.createStatement();
+			ResultSet resultSet = st.executeQuery(sql2);
+			// System.out.println(resultSet);
+			while (resultSet.next()) {
+				Integer id = resultSet.getInt("id");
+				String employee_type_name = resultSet.getString("employee_type_name");
+				String hotel_location=resultSet.getString("hotel_location");
+				Date created_date = resultSet.getDate("created_date");
+				Date updated_date = resultSet.getDate("created_date");
+				Boolean is_Active = resultSet.getBoolean("is_Active");
+
+				System.out.println(id + ", " + employee_type_name + ", "+hotel_location+", " + created_date + " ,"
+						+ updated_date + ", " + is_Active);
+			}
+
+		}
+
+		// Catch block to handle exceptions
+		catch (Exception ex) {
+			// Display message when exceptions occurs
+			System.err.println(ex);
+		}
+
+	}
+	public static void updateById6() {
+		String url = "jdbc:mysql://localhost:3306/HotelDBMS";
+
+		// Username and password to access DB
+		// Custom initialization
+		String user = "root";
+		String pass = "root";
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter id: ");
+		Integer idInput = scanner.nextInt();
+
+		System.out.println("Enter Employee Type: ");
+		String employeeTypeInput = scanner.next();
+
+		String sql2 = "UPDATE Room_Type SET guest_name='" + employeeTypeInput+ "' WHERE id='" + idInput + "'";
+		
+		Connection con1 = null;
+
+		try {
+
+			Driver driver = (Driver) Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+			// Registering drivers
+			DriverManager.registerDriver(driver);
+
+			// Reference to connection interface
+			con1 = DriverManager.getConnection(url, user, pass);
+
+			// Creating a statement
+			Statement st = con1.createStatement();
+			int m = st.executeUpdate(sql2);
+
+			
+
+		}
+
+		// Catch block to handle exceptions
+		catch (Exception ex) {
+			// Display message when exceptions occurs
+			System.err.println(ex);
+		}
+	}
+	public static void deleteById6() {
+		String url = "jdbc:mysql://localhost:3306/HotelDBMS";
+
+		// Username and password to access DB
+		// Custom initialization
+		String user = "root";
+		String pass = "root";
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter id: ");
+		Integer idInput = scanner.nextInt();
+
+		String sql2 = "delete from Employee_Type where id ='"+idInput + "'";
+		Connection con1 = null;
+
+		try {
+
+			Driver driver = (Driver) Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+			// Registering drivers
+			DriverManager.registerDriver(driver);
+
+			// Reference to connection interface
+			con1 = DriverManager.getConnection(url, user, pass);
+
+			// Creating a statement
+			Statement st = con1.createStatement();
+			int m = st.executeUpdate(sql2);
+
+		}
+
+		// Catch block to handle exceptions
+		catch (Exception ex) {
+			// Display message when exceptions occurs
+			System.err.println(ex);
+		}
+	}
+	public static void makeIsActiveFalseById6( ) {
+		String url = "jdbc:mysql://localhost:3306/HotelDBMS";
+
+		// Username and password to access DB
+		// Custom initialization
+		String user = "root";
+		String pass = "root";
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter id: ");
+		Integer idInput = scanner.nextInt();
+
+		System.out.println("Enter employee_Type is active=0 ");
+		Integer falseInput = scanner.nextInt();
+
+		String sql2 = "UPDATE Employee_Type SET is_Active=" + falseInput + " WHERE id=" + idInput ;
+		
+		Connection con1 = null;
+
+		try {
+
+			Driver driver = (Driver) Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+			// Registering drivers
+			DriverManager.registerDriver(driver);
+
+			// Reference to connection interface
+			con1 = DriverManager.getConnection(url, user, pass);
+
+			// Creating a statement
+			Statement st = con1.createStatement();
+			int m = st.executeUpdate(sql2);
+
+			
+
+		}
+
+		// Catch block to handle exceptions
+		catch (Exception ex) {
+			// Display message when exceptions occurs
+			System.err.println(ex);
+		}
+		
+	}
+	
 }
 

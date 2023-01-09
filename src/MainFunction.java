@@ -18,10 +18,11 @@ public class MainFunction {
 		System.out.println("10.Create Guests Table");
 		System.out.println("11.Create Employee_type Table");
 		System.out.println("12.Create Employee Table");
-		//System.out.println("13.Insert into Employees Table");
 		System.out.println("13.Insert into room_Type");
+		System.out.println("14.Insert into Rooms Table");
+		//System.out.println("13.Insert into Employees Table");
 		//System.out.println("10.Create Employee_type Table");
-		//System.out.println("11.Create Rooms table");
+		
 		
 		 }
 	public static void submenueFunction() {
@@ -110,6 +111,9 @@ public class MainFunction {
                 case 13:
                 	Room_Type roomTypeInsert=new Room_Type();
                 	roomTypeInsert.insertIntoTable3();
+                case 14:
+                	Rooms roomsInsert=new Rooms();
+                	roomsInsert.insertIntoTable4();
 			}
 				}while(true);
 
