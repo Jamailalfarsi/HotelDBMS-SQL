@@ -107,11 +107,12 @@ public class Rooms {
 
 		
 
-		for (int i = 1; i <= number; i++) {
-			String in = "insert into Room_Type values (" + i + ", '" + room_type_id + "', '" 
-					+ created_date + "', '" + updated_date + "'," + is_Active + ")";
+		for (int i = 0; i <= number; i++) {
+			//String in = "insert into Rooms values (" + i + ", '" + room_type_id + "', '" +
+					//hotel_id + created_date + "', '" + updated_date + "'," + is_Active + ")";
 		//String in=SELECT id FROM Rooms INNER JOIN Room_Type ON Rooms.room_type_id=Room_type.id WHERE Room_Type.
-		
+			String in = "Insert into rooms values(" + i  + "," + room_type_id + "," + hotel_id + ",'"
+					  + created_date + "','" + updated_date + "'," +is_Active+ ")";
         	
 			Connection con1 = null;
 
