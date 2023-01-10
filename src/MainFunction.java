@@ -26,7 +26,7 @@ public class MainFunction {
 		System.out.println("17.Insert into Employees Table");
 		System.out.println("18.3 Rooms types are-> 'STANDARD', 'DELUXE', 'SUITE'");
 		System.out.println("19.Employee Types are -> 'MANAGER', 'ATTENDANT', 'VALET', 'BUTLER', 'DIRECTOR'");
-		
+		System.out.println("20.Guests who's name end with 'E'");
 		
 		
 		 }
@@ -142,7 +142,9 @@ public class MainFunction {
                 	Employee_Type updatedEmployeeType=new Employee_Type();
                 	updatedEmployeeType.updateById6();
                 	break;
-                	
+                case 20:
+                	HotelManagement hotelManagmentObj=new HotelManagement();
+                	hotelManagmentObj.hotelManagementFunction();
 			}
 				}while(true);
 
