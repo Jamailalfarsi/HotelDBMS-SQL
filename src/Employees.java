@@ -30,14 +30,14 @@ public class Employees {
         String sql = "CREATE TABLE Employees " +
                 "(id int NOT NULL AUTO_INCREMENT  , " +
                 " employee_type_id INTEGER NOT NULL, " + 
-               "FOREIGN KEY (employee_type_id) REFERENCES Employee_Type(id) ON DELETE CASCADE ,"+
+                "FOREIGN KEY (employee_type_id) REFERENCES Employee_Type(id) ON DELETE CASCADE ,"+
                // "CONSTRAINT employee_type_idFK foreign key (employee_type_id) REFERENCES Employee_Type(id),"+
                 " room_id  INTEGER, " + 
                 "FOREIGN KEY (room_id) REFERENCES Hotels(id) ON DELETE CASCADE ,"+
 
                 " created_date DATE NOT NULL, " + 
                 " updated_date DATE , " + 
-                " is_Active bit NOT NULL, " + 
+                " is_Active Boolean NOT NULL, " + 
                 " PRIMARY KEY ( id ))";
 
        
@@ -143,18 +143,16 @@ public class Employees {
 		System.out.println("Enter the number of employees:");
 		Integer number = scanner.nextInt();
 
-		// int id = 0;
-		Integer employee_type_id = 2333;
+		Random rn = new Random();
+		Integer numberToAdd = rn.nextInt(100);
+		Integer employee_type_id = 2;
 		Integer room_id  = 1;
 		String created_date = "2022-02-02";
 		String updated_date = "2022-12-12";
-		int is_Active = 1;
-
-		Random rn = new Random();
-		Integer numberToAdd = rn.nextInt(100);
+		Boolean is_Active = true;
 
 		for (int i = 1; i <= number; i++) {
-			String in = "insert into Employees values (" +i + ", " + employee_type_id +  ", " + room_id +
+			String in = "insert into Employees values (" +i +"," + employee_type_id +" ," + room_id +
 					 ", '" + created_date + "', '" + updated_date + "', " + is_Active + ")";
 			
 			
@@ -174,22 +172,28 @@ public class Employees {
 				Statement st = con1.createStatement();
 
 				int m = st.executeUpdate(in);
-				if (m >= 0)
+				if (m >= 0) {
 					System.out.println("inserted successfully : " + m);
-				else
+				}
+				else {
 					System.out.println("insertion failed");
+				}
 
 				// Closing the connections
+			
 				con1.close();
-			}
 
-			// Catch block to handle exceptions
+			}
 			catch (Exception ex) {
 				// Display message when exceptions occurs
 				System.err.println(ex);
 			}
-
 		}
+
+		// Catch block to handle exceptions
+		
+
+		
 	}
 	public static void getById2() {
 		String url = "jdbc:mysql://localhost:3306/HotelDBMS";

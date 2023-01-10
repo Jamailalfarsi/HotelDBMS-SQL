@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 import java.util.Scanner;
 
 
@@ -22,7 +23,7 @@ public class MainFunction {
 		System.out.println("14.Insert into Rooms Table");
 		System.out.println("15.Insert into Guests Table");
 		System.out.println("16.Create Employee_type Table");
-		//System.out.println("13.Insert into Employees Table");
+		System.out.println("17.Insert into Employees Table");
 		
 		
 		
@@ -30,7 +31,7 @@ public class MainFunction {
 	public static void submenueFunction() {
 		System.out.println("Select one of the options:");
 	}
-		public static void main(String[] args) {
+		public static void main(String[] args) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
 			
 			 
 			   
@@ -106,10 +107,7 @@ public class MainFunction {
                 	Employees employees=new Employees();
                 	employees.employeesTable();
                 	break;
-//                case 13:
-//                	Employees employeeInsert=new Employees();
-//                	employeeInsert.insertIntoTable2();
-//                	break;
+                
                 case 13:
                 	Room_Type roomTypeInsert=new Room_Type();
                 	roomTypeInsert.insertIntoTable3();
@@ -122,6 +120,10 @@ public class MainFunction {
                 case 16:
                 	Employee_Type employeeTypeInsert=new Employee_Type ();
                 	employeeTypeInsert.insertIntoTable6();
+                case 17:
+               	Employees employeeInsert=new Employees();
+               	employeeInsert.insertIntoTable2();
+               	break;
 			}
 				}while(true);
 
