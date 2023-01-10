@@ -33,7 +33,7 @@ public class Employees {
                 "FOREIGN KEY (employee_type_id) REFERENCES Employee_Type(id) ON DELETE CASCADE ,"+
                // "CONSTRAINT employee_type_idFK foreign key (employee_type_id) REFERENCES Employee_Type(id),"+
                 " room_id  INTEGER, " + 
-                "FOREIGN KEY (room_id) REFERENCES Hotels(id) ON DELETE CASCADE ,"+
+                "FOREIGN KEY (room_id) REFERENCES Rooms(id) ON DELETE CASCADE ,"+
 
                 " created_date DATE NOT NULL, " + 
                 " updated_date DATE , " + 
