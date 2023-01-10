@@ -111,15 +111,22 @@ public class MainFunction {
                 case 13:
                 	Room_Type roomTypeInsert=new Room_Type();
                 	roomTypeInsert.insertIntoTable3();
+                	break;
+                	
                 case 14:
                 	Rooms roomsInsert=new Rooms();
                 	roomsInsert.insertIntoTable4();
+                	break;
                 case 15:
                 	Guests guestsInsert=new Guests();
                 	guestsInsert.insertIntoTable5();
+                	break;
+                	
                 case 16:
                 	Employee_Type employeeTypeInsert=new Employee_Type ();
                 	employeeTypeInsert.insertIntoTable6();
+                	break;
+                	
                 case 17:
                	Employees employeeInsert=new Employees();
                	employeeInsert.insertIntoTable2();
