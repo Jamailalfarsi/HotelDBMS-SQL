@@ -24,6 +24,7 @@ public class MainFunction {
 		System.out.println("15.Insert into Guests Table");
 		System.out.println("16.Create Employee_type Table");
 		System.out.println("17.Insert into Employees Table");
+		System.out.println("18.3 Rooms types are-> 'STANDARD', 'DELUXE', 'SUITE'");
 		
 		
 		
@@ -131,6 +132,10 @@ public class MainFunction {
                	Employees employeeInsert=new Employees();
                	employeeInsert.insertIntoTable2();
                	break;
+               	
+                case 18:
+                	Room_Type updatedRoomType=new Room_Type();
+                	updatedRoomType.updateById3();
 			}
 				}while(true);
 

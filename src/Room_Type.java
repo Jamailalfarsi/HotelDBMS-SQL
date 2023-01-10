@@ -245,13 +245,18 @@ public class Room_Type {
 		String pass = "root";
 
 		Scanner scanner = new Scanner(System.in);
+		System.out.println("How many rooms you need to updat:");
+		Integer num=scanner.nextInt();
+		
+		for(int i=1;i<=num;i++) {
 		System.out.println("Enter id: ");
 		Integer idInput = scanner.nextInt();
-
+        
+		
 		System.out.println("Enter Room Type: ");
 		String roomTypeInput = scanner.next();
 
-		String sql2 = "UPDATE Room_Type SET hotel_name='" + roomTypeInput+ "' WHERE id='" + idInput + "'";
+		String sql2 = "UPDATE Room_Type SET room_type_name='" + roomTypeInput+ "' WHERE id='" + idInput + "'";
 		
 		Connection con1 = null;
 
@@ -276,6 +281,7 @@ public class Room_Type {
 		catch (Exception ex) {
 			// Display message when exceptions occurs
 			System.err.println(ex);
+		}
 		}
 	}
 	
