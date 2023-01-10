@@ -4,6 +4,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Date;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Guests {
@@ -83,6 +84,77 @@ public class Guests {
 	        }
 	        
 		}
+		public static void insertIntoTable5() {
+			String url = "jdbc:mysql://localhost:3306/HotelDBMS";
+
+			// Username and password to access DB
+			// Custom initialization
+			String user = "root";
+			String pass = "root";
+
+			Scanner scanner = new Scanner(System.in);
+
+			System.out.println("Enter How many you want of Guests:");
+			Integer number = scanner.nextInt();
+			
+			Random rn = new Random();
+			Integer numberToAdd = rn.nextInt(100);
+			
+			String guest_name="Saif";
+			String guest_phone="9999777";
+			Integer guest_accompanying_members=1;
+			Integer guest_payment_amount=20;
+			Integer room_id=1;
+			Integer hotel_id=1;
+			String created_date = "2022-02-02";
+			String updated_date = "2022-12-12";
+			Boolean is_Active = true;
+
+
+			for (int i = 0; i <= number; i++) {
+				
+				String in = "Insert into Guests values(" + i+","
+						+ "'" +guest_name+"'"
+								+ ",'"+guest_phone + "'"
+										+ "," + guest_accompanying_members + ""
+												+ ","+guest_payment_amount+""
+														+ "," +room_id+""
+																+ "," +hotel_id + ""
+														+ ", '" + created_date + "'"
+																+ ",'" + updated_date + "'"
+														+ "," +is_Active+ ")";
+	        	
+				Connection con1 = null;
+
+				try {
+
+					Driver driver = (Driver) Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+					// Registering drivers
+					DriverManager.registerDriver(driver);
+
+					// Reference to connection interface
+					con1 = DriverManager.getConnection(url, user, pass);
+
+					// Creating a statement
+					Statement st = con1.createStatement();
+
+					int m = st.executeUpdate(in);
+					if (m >= 0)
+						System.out.println("inserted successfully : " + m);
+					else
+						System.out.println("insertion failed");
+
+					// Closing the connections
+					con1.close();
+				}
+
+				// Catch block to handle exceptions
+				catch (Exception ex) {
+					// Display message when exceptions occurs
+					System.err.println(ex);
+				}
+
+			}}
 		public static void readFromTable5() {
 
 			String url = "jdbc:mysql://localhost:3306/HotelDBMS";

@@ -20,6 +20,7 @@ public class MainFunction {
 		System.out.println("12.Create Employee Table");
 		System.out.println("13.Insert into room_Type");
 		System.out.println("14.Insert into Rooms Table");
+		System.out.println("15.Insert into Guests Table");
 		//System.out.println("13.Insert into Employees Table");
 		//System.out.println("10.Create Employee_type Table");
 		
@@ -114,6 +115,9 @@ public class MainFunction {
                 case 14:
                 	Rooms roomsInsert=new Rooms();
                 	roomsInsert.insertIntoTable4();
+                case 15:
+                	Guests guestsInsert=new Guests();
+                	guestsInsert.insertIntoTable5();
 			}
 				}while(true);
 
