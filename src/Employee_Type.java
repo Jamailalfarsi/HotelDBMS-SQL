@@ -4,6 +4,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Date;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Employee_Type {
@@ -74,6 +75,67 @@ public class Employee_Type {
             System.err.println(ex);
         }
     }
+	public static void insertIntoTable6() {
+		String url = "jdbc:mysql://localhost:3306/HotelDBMS";
+
+		// Username and password to access DB
+		// Custom initialization
+		String user = "root";
+		String pass = "root";
+
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.println("Enter How many you want of Employee Type:");
+		Integer number = scanner.nextInt();
+		
+		Random rn = new Random();
+		Integer numberToAdd = rn.nextInt(100);
+		
+		
+		String employee_type = "Jr" + numberToAdd;
+		String hotel_location="Oman";
+		String created_date = "2022-02-02";
+		String updated_date = "2022-12-12";
+		Boolean is_Active = true;
+
+		
+
+		for (int i = 1; i <= number; i++) {
+			String in = "insert into Employee_Type values (" + i + ", '" + employee_type + "', '" +
+					hotel_location+"', '"	+ created_date + "', '" + updated_date + "'," + is_Active + ")";
+        	
+			Connection con1 = null;
+
+			try {
+
+				Driver driver = (Driver) Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+				// Registering drivers
+				DriverManager.registerDriver(driver);
+
+				// Reference to connection interface
+				con1 = DriverManager.getConnection(url, user, pass);
+
+				// Creating a statement
+				Statement st = con1.createStatement();
+
+				int m = st.executeUpdate(in);
+				if (m >= 0)
+					System.out.println("inserted successfully : " + m);
+				else
+					System.out.println("insertion failed");
+
+				// Closing the connections
+				con1.close();
+			}
+
+			// Catch block to handle exceptions
+			catch (Exception ex) {
+				// Display message when exceptions occurs
+				System.err.println(ex);
+			}
+
+		}
+}
 	public static void readFromTable6() {
 
 		String url = "jdbc:mysql://localhost:3306/HotelDBMS";
