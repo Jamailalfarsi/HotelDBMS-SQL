@@ -29,7 +29,7 @@ public class Employee_Type {
        
         String sql = "CREATE TABLE Employee_Type " +
                 "(id int NOT NULL AUTO_INCREMENT , " +
-                " employee_type_name VARCHAR(8) NOT NULL, " + 
+                " employee_type_name VARCHAR(20) NOT NULL, " + 
                 " hotel_location VARCHAR(250), " + 
                 " created_date DATE NOT NULL, " + 
                 " updated_date DATE , " + 
@@ -246,13 +246,18 @@ public class Employee_Type {
 		String pass = "root";
 
 		Scanner scanner = new Scanner(System.in);
+		System.out.println("How many Employees you need to updat:");
+		Integer num=scanner.nextInt();
+		
+		for(int i=1;i<=num;i++) {
+
 		System.out.println("Enter id: ");
 		Integer idInput = scanner.nextInt();
 
 		System.out.println("Enter Employee Type: ");
 		String employeeTypeInput = scanner.next();
 
-		String sql2 = "UPDATE Room_Type SET guest_name='" + employeeTypeInput+ "' WHERE id='" + idInput + "'";
+		String sql2 = "UPDATE Employee_Type SET employee_type_name='" + employeeTypeInput+ "' WHERE id='" + idInput + "'";
 		
 		Connection con1 = null;
 
@@ -277,6 +282,7 @@ public class Employee_Type {
 		catch (Exception ex) {
 			// Display message when exceptions occurs
 			System.err.println(ex);
+		}
 		}
 	}
 	public static void deleteById6() {
