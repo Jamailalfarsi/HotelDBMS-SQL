@@ -27,6 +27,7 @@ public class MainFunction {
 		System.out.println("18.3 Rooms types are-> 'STANDARD', 'DELUXE', 'SUITE'");
 		System.out.println("19.Employee Types are -> 'MANAGER', 'ATTENDANT', 'VALET', 'BUTLER', 'DIRECTOR'");
 		System.out.println("20.Guests who's name end with 'E'");
+		System.out.println("21.All rooms which are not active but room type is 'Deluxe'");
 		
 		
 		 }
@@ -145,6 +146,9 @@ public class MainFunction {
                 case 20:
                 	HotelManagement hotelManagmentObj=new HotelManagement();
                 	hotelManagmentObj.hotelManagementFunction();
+                case 21:
+                	HotelManagement hotelManagmentObj1=new HotelManagement();
+                	hotelManagmentObj1.function2();
 			}
 				}while(true);
 
